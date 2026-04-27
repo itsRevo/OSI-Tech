@@ -26,7 +26,8 @@
       "@/*": [
         "./src/*"
       ]
-    }
+    },
+    "esModuleInterop": true
   },
   "include": [
     "next-env.d.ts",
@@ -35,10 +36,6 @@
     "src/**/*.tsx"
   ],
   "exclude": [
-    "node_modules",
-    "src/main.tsx",
-    "src/App.tsx",
-    "src/pages.tsx",
-    "vite.config.ts"
+    "node_modules"
   ]
 }
