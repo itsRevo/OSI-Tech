@@ -1,0 +1,8 @@
+{
+  "name": "OsiTech Smart Repair",
+  "description": "Professioneller Reparatur-Service für Smartphones, Tablets und Laptops in Rhede. Präzision trifft Mobilität mit Vor-Ort-Service und transparenten Preismodellen.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": []
+}
