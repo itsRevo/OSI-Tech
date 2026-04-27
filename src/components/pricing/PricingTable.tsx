@@ -16,7 +16,7 @@ export default function PricingTable() {
   const brands = [
     {id: 'apple', name: 'iPhone', icon: <Smartphone size={16} />},
     {id: 'samsung', name: 'Samsung', icon: <Smartphone size={16} />},
-    {id: 'google', name: 'Google Pixel', icon: <Smartphone size={16} />},
+    {id: 'google', name: 'Andere', icon: <Smartphone size={16} />},
   ];
 
   const repairData: Record<string, any[]> = {
@@ -194,7 +194,7 @@ export default function PricingTable() {
                 </div>
                 <div className="text-5xl font-black">{getPrice()}€</div>
                 <div className="text-[9px] text-white/30 mt-4 italic font-medium">
-                  Inkl. MwSt., Einbau & 12 Monate Garantie
+                  Inkl. MwSt., Einbau & 6 Monate Garantie
                 </div>
               </>
             ) : (

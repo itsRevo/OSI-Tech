@@ -97,10 +97,9 @@ export default function HomePage() {
                 referrerPolicy="no-referrer"
               />
               <div className="absolute -bottom-10 -left-10 bg-brand-lime p-8 rounded-[40px] shadow-xl max-w-[240px]">
-                <h3 className="text-4xl font-black text-brand-navy">60m</h3>
-                <p className="text-brand-navy font-bold text-sm tracking-tight leading-none mt-1 uppercase">
+                <h3 className="text-3xl font-black text-brand-navy leading-tight">
                   Meist am selben Tag fertig
-                </p>
+                </h3>
               </div>
               <div className="absolute top-10 -right-10 bg-brand-navy text-white p-8 rounded-[40px] shadow-xl italic">
                 <ShieldCheck size={40} className="text-brand-lime mb-2" />
@@ -129,8 +128,8 @@ export default function HomePage() {
             {[
               {
                 icon: <ShieldCheck size={32} />,
-                title: '12 Monate Garantie',
-                desc: 'Auf alle ersetzten Teile und unsere durchgeführte Arbeit.',
+                title: 'Bis zu 6 Monate Garantie',
+                desc: 'Auf ersetzte Teile und unsere durchgeführte Arbeit.',
               },
               {
                 icon: <Zap size={32} />,

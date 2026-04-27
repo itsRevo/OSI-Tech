@@ -14,7 +14,7 @@ export default function ServicesPage() {
     {
       icon: <Battery size={32} />,
       name: 'Akku-Austausch',
-      time: '< 30 Min',
+      time: '< 45 Min',
       desc: 'Wiederherstellung der originalen Laufzeit mit zertifizierten Hochleistungszellen.',
     },
     {
