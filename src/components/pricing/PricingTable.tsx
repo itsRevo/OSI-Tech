@@ -42,7 +42,7 @@ export default function PricingTable() {
       {model: 'iPhone 14 Pro Max', standard: '119,90', premium: '169,90', original: '409,90', akku: '79,90'},
       {model: 'iPhone 15', standard: '99,90', premium: '179,90', original: '309,90', akku: '79,90'},
       {model: 'iPhone 15 Plus', standard: '99,90', premium: '169,90', original: '299,90', akku: '79,90'},
-      {model: 'iPhone 15 Pro', standard: '109,90', premium: '179,90', original: '409,90', Practical: '79,90'},
+      {model: 'iPhone 15 Pro', standard: '109,90', premium: '179,90', original: '409,90', akku: '79,90'},
       {model: 'iPhone 15 Pro Max', standard: '119,90', premium: '169,90', original: '429,90', akku: '79,90'},
       {model: 'iPhone 16', standard: '119,90', premium: '189,90', original: '329,90', akku: '84,90'},
       {model: 'iPhone 16 Plus', standard: '119,90', premium: '179,90', original: '319,90', akku: '84,90'},
@@ -50,7 +50,45 @@ export default function PricingTable() {
       {model: 'iPhone 16 Pro Max', standard: '159,90', premium: '209,90', original: '479,90', akku: '84,90'},
       {model: 'iPhone 16 e', standard: '99,90', premium: '149,90', original: '269,90', akku: '89,90'},
     ],
-    samsung: [],
+    samsung: [
+      {model: 'Samsung Galaxy S26', display: '259,90', note: 'Circa-Angabe'},
+      {model: 'Samsung Galaxy S26 Plus', display: '299,90', note: 'Circa-Angabe'},
+      {
+        model: 'Samsung Galaxy S26 Ultra',
+        display: '259,90',
+        prefix: 'ab ca.',
+        note: 'Je nach Farbe kann der Preis variieren.',
+      },
+      {
+        model: 'Samsung Galaxy S25',
+        display: '219,90',
+        prefix: 'ab ca.',
+        note: 'Je nach Farbe kann der Preis variieren.',
+      },
+      {model: 'Samsung Galaxy S25 FE', display: '169,90', note: 'Circa-Angabe'},
+      {model: 'Samsung Galaxy S25 Edge', display: '299,90', note: 'Circa-Angabe'},
+      {
+        model: 'Samsung Galaxy S25 Plus',
+        display: '239,90',
+        prefix: 'ab ca.',
+        note: 'Je nach Farbe kann der Preis variieren.',
+      },
+      {model: 'Samsung Galaxy S25 Ultra', display: '309,90', note: 'Circa-Angabe'},
+      {model: 'Samsung Galaxy S24 FE', display: '189,90', note: 'Circa-Angabe'},
+      {
+        model: 'Samsung Galaxy S24',
+        display: '224,90',
+        prefix: 'ab ca.',
+        note: 'Je nach Farbe kann der Preis variieren.',
+      },
+      {
+        model: 'Samsung Galaxy S24 Plus',
+        display: '249,90',
+        prefix: 'ab ca.',
+        note: 'Je nach Farbe kann der Preis variieren.',
+      },
+      {model: 'Samsung Galaxy S24 Ultra', display: '309,90', note: 'Circa-Angabe'},
+    ],
     google: [],
   };
 
@@ -60,6 +98,7 @@ export default function PricingTable() {
 
   useEffect(() => {
     setSelectedModel(repairData[selectedBrand][0]?.model || '');
+    setSelectedType(selectedBrand === 'samsung' ? 'display' : 'original');
   }, [selectedBrand]);
 
   const currentBrandData = repairData[selectedBrand] || [];
@@ -67,10 +106,47 @@ export default function PricingTable() {
     currentBrandData.find((d) => d.model === selectedModel) ||
     currentBrandData[0] ||
     {};
+  const serviceTypes =
+    selectedBrand === 'samsung'
+      ? [
+          {
+            id: 'display',
+            label: 'Display-Reparatur',
+            icon: <Monitor size={16} />,
+            desc: 'Circa-Preis je nach Farbe & Verfügbarkeit',
+          },
+        ]
+      : [
+          {
+            id: 'original',
+            label: 'Original Qualität',
+            icon: <ShieldCheck size={16} />,
+            desc: 'Höchste Präzision & Garantie',
+          },
+          {
+            id: 'premium',
+            label: 'Premium Qualität',
+            icon: <Zap size={16} />,
+            desc: 'Hervorragendes Preis-Leistung',
+          },
+          {
+            id: 'standard',
+            label: 'Standard Qualität',
+            icon: <Monitor size={16} />,
+            desc: 'Günstige Alternative',
+          },
+          {
+            id: 'akku',
+            label: 'Akku-Austausch',
+            icon: <Cpu size={16} />,
+            desc: 'Neue Kapazität',
+          },
+        ];
 
   const getPrice = () => {
-    if (selectedBrand !== 'apple') return null;
     if (!currentData) return '0,00';
+    if (selectedBrand === 'samsung') return currentData.display || 'a.A.';
+    if (selectedBrand !== 'apple') return null;
     if (selectedType === 'standard') return currentData.standard || 'a.A.';
     if (selectedType === 'premium') return currentData.premium || 'a.A.';
     if (selectedType === 'original') return currentData.original || 'a.A.';
@@ -117,6 +193,13 @@ export default function PricingTable() {
                 </div>
               )}
             </div>
+            {selectedBrand === 'samsung' && (
+              <p className="mt-5 text-xs leading-relaxed text-brand-navy/50">
+                Hinweis: Samsung-Preise sind Circa-Angaben. Ersatzteilpreise
+                variieren häufig und können je nach Farbe, Lieferbarkeit und
+                Display-Version abweichen.
+              </p>
+            )}
           </div>
         </div>
 
@@ -126,32 +209,7 @@ export default function PricingTable() {
               Qualität / Service
             </label>
             <div className="space-y-3">
-              {[
-                {
-                  id: 'original',
-                  label: 'Original Qualität',
-                  icon: <ShieldCheck size={16} />,
-                  desc: 'Höchste Präzision & Garantie',
-                },
-                {
-                  id: 'premium',
-                  label: 'Premium Qualität',
-                  icon: <Zap size={16} />,
-                  desc: 'Hervorragendes Preis-Leistung',
-                },
-                {
-                  id: 'standard',
-                  label: 'Standard Qualität',
-                  icon: <Monitor size={16} />,
-                  desc: 'Günstige Alternative',
-                },
-                {
-                  id: 'akku',
-                  label: 'Akku-Austausch',
-                  icon: <Cpu size={16} />,
-                  desc: 'Neue Kapazität',
-                },
-              ].map((type) => (
+              {serviceTypes.map((type) => (
                 <button
                   key={type.id}
                   onClick={() => setSelectedType(type.id)}
@@ -187,14 +245,22 @@ export default function PricingTable() {
             <div className="absolute -top-6 -right-6 p-4 opacity-10 group-hover:rotate-12 transition-transform">
               <Smartphone size={100} />
             </div>
-            {selectedBrand === 'apple' ? (
+            {selectedBrand === 'apple' || selectedBrand === 'samsung' ? (
               <>
                 <div className="text-[10px] font-bold tracking-[0.3em] text-white/40 mb-2 uppercase">
-                  FINALER PREIS
+                  {selectedBrand === 'samsung' ? 'CIRCA PREIS' : 'FINALER PREIS'}
                 </div>
-                <div className="text-5xl font-black">{getPrice()}€</div>
+                <div className="text-5xl font-black">
+                  {selectedBrand === 'samsung' && currentData.prefix
+                    ? `${currentData.prefix} `
+                    : ''}
+                  {getPrice()}€
+                </div>
                 <div className="text-[9px] text-white/30 mt-4 italic font-medium">
-                  Inkl. MwSt., Einbau & 6 Monate Garantie
+                  {selectedBrand === 'samsung'
+                    ? currentData.note ||
+                      'Circa-Angabe, da Samsung-Ersatzteilpreise häufig variieren.'
+                    : 'Inkl. MwSt., Einbau & 6 Monate Garantie'}
                 </div>
               </>
             ) : (

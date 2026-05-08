@@ -1,4 +1,14 @@
+import type {Metadata} from 'next';
 import {Clock, Mail, MapPin, Phone} from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Kontakt und Anfahrt zur Werkstatt in Rhede',
+  description:
+    'Adresse, Telefon, E-Mail und Öffnungszeiten von OsiTech Smart Repair in Rhede. Schnell erreichbar aus Bocholt und Borken.',
+  alternates: {
+    canonical: '/contact',
+  },
+};
 
 export default function ContactPage() {
   return (
@@ -9,9 +19,9 @@ export default function ContactPage() {
             <span className="text-blue-600 text-[10px] font-bold tracking-[0.2em] uppercase">
               STANDORT
             </span>
-            <h2 className="text-6xl font-bold mt-4 italic">
+            <h1 className="text-5xl md:text-6xl font-bold mt-4 italic">
               Kontakt <span className="text-blue-600 not-italic">& Anfahrt</span>
-            </h2>
+            </h1>
             <p className="text-brand-navy/60 mt-8 text-lg leading-relaxed max-w-md">
               Sie finden uns im Herzen von Rhede. Besuchen Sie unsere moderne
               Werkstatt oder kontaktieren Sie uns für eine Abholung.

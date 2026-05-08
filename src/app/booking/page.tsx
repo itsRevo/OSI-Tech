@@ -1,9 +1,31 @@
+import type {Metadata} from 'next';
 import {Calendar, Mail, MapPin, Truck, Zap} from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Termin für Handy Reparatur buchen',
+  description:
+    'Termin für iPhone, Samsung, Tablet oder Laptop Reparatur in Rhede anfragen. Bring-In, Abholung oder Versand bei OsiTech Smart Repair.',
+  alternates: {
+    canonical: '/termine',
+  },
+};
 
 export default function BookingPage() {
   return (
     <main className="pt-32 pb-24">
       <section id="booking" className="max-w-7xl mx-auto px-6 md:px-12">
+        <div className="max-w-3xl mb-14">
+          <span className="text-blue-600 text-[10px] font-bold tracking-[0.2em] uppercase">
+            TERMIN ANFRAGEN
+          </span>
+          <h1 className="text-5xl md:text-6xl font-bold mt-4 italic">
+            Reparatur-Termin <span className="text-blue-600 not-italic">planen</span>
+          </h1>
+          <p className="text-brand-navy/60 mt-6 text-lg leading-relaxed">
+            Beschreiben Sie Gerät und Schaden. Wir melden uns zur Abstimmung von
+            Zeitfenster, Ersatzteilverfügbarkeit und voraussichtlicher Dauer.
+          </p>
+        </div>
         <div className="grid lg:grid-cols-3 gap-16">
           <div className="lg:col-span-2 bg-white rounded-[40px] p-8 md:p-16 shadow-sm border border-brand-grey">
             <div className="flex items-center space-x-4 mb-12">

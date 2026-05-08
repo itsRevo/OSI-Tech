@@ -52,7 +52,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/prices"
+                  href="/preise"
                   className="hover:text-brand-lime transition-colors"
                 >
                   Preisliste
@@ -60,7 +60,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/booking"
+                  href="/termine"
                   className="hover:text-brand-lime transition-colors"
                 >
                   Terminbuchung
@@ -72,6 +72,30 @@ export default function Footer() {
                   className="hover:text-brand-lime transition-colors"
                 >
                   Standort
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/rhede"
+                  className="hover:text-brand-lime transition-colors"
+                >
+                  Handy Reparatur Rhede
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/bocholt"
+                  className="hover:text-brand-lime transition-colors"
+                >
+                  Handy Reparatur Bocholt
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/borken"
+                  className="hover:text-brand-lime transition-colors"
+                >
+                  Handy Reparatur Borken
                 </Link>
               </li>
             </ul>

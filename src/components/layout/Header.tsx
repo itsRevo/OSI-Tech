@@ -21,8 +21,8 @@ export default function Header() {
   const navLinks = [
     {name: 'Startseite', href: '/'},
     {name: 'Services', href: '/services'},
-    {name: 'Preise', href: '/prices'},
-    {name: 'Termin', href: '/booking'},
+    {name: 'Preise', href: '/preise'},
+    {name: 'Termin', href: '/termine'},
     {name: 'Kontakt', href: '/contact'},
   ];
 
@@ -51,7 +51,7 @@ export default function Header() {
 
         <div className="flex-1 hidden md:flex justify-end">
           <Link
-            href="/booking"
+            href="/termine"
             className="bg-brand-navy text-white px-5 py-2 rounded-md text-sm font-semibold hover:bg-opacity-90 transition-all"
           >
             Termin anfragen
@@ -89,7 +89,7 @@ export default function Header() {
                 </NavLink>
               ))}
               <Link
-                href="/booking"
+                href="/termine"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="bg-brand-navy text-white py-4 rounded-xl text-center font-bold"
               >
