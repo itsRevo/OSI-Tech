@@ -74,21 +74,43 @@ export default function BookingPage() {
                 <label className="block text-[10px] font-bold text-brand-navy/40 tracking-widest mb-2 uppercase">
                   Gerät
                 </label>
-                <select className="w-full bg-brand-grey border-none rounded-xl px-5 py-4 focus:ring-2 focus:ring-blue-500 transition-all font-medium">
-                  <option>iPhone 15 Pro Max</option>
-                  <option>Samsung Galaxy S24</option>
-                  <option>Anderes Modell</option>
-                </select>
-              </div>
-              <div>
-                <label className="block text-[10px] font-bold text-brand-navy/40 tracking-widest mb-2 uppercase">
-                  Wunschtermin
-                </label>
                 <input
-                  type="date"
+                  type="text"
+                  name="device"
+                  placeholder="z.B. iPhone 15 Pro"
                   className="w-full bg-brand-grey border-none rounded-xl px-5 py-4 focus:ring-2 focus:ring-blue-500 transition-all font-medium"
                 />
               </div>
+              <div>
+                <label className="block text-[10px] font-bold text-brand-navy/40 tracking-widest mb-2 uppercase">
+                  IMEI-Nummer optional
+                </label>
+                <input
+                  type="text"
+                  name="imei"
+                  inputMode="numeric"
+                  placeholder="z.B. 356000000000000"
+                  className="w-full bg-brand-grey border-none rounded-xl px-5 py-4 focus:ring-2 focus:ring-blue-500 transition-all font-medium"
+                />
+              </div>
+            </div>
+
+            <div className="mb-10">
+              <label className="block text-[10px] font-bold text-brand-navy/40 tracking-widest mb-2 uppercase">
+                Wunschtermin
+              </label>
+              <input
+                type="date"
+                className="w-full bg-brand-grey border-none rounded-xl px-5 py-4 focus:ring-2 focus:ring-blue-500 transition-all font-medium"
+              />
+            </div>
+
+            <div className="mb-10">
+              <p className="text-xs text-brand-navy/40 leading-relaxed">
+                Die IMEI hilft bei der eindeutigen Gerätezuordnung und ist
+                freiwillig. Sie finden sie oft über *#06# oder in den
+                Geräteeinstellungen.
+              </p>
             </div>
 
             <div className="mb-10">
@@ -105,29 +127,49 @@ export default function BookingPage() {
               <label className="block text-[10px] font-bold text-brand-navy/40 tracking-widest mb-4 uppercase">
                 Service-Art
               </label>
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid md:grid-cols-3 gap-4">
                 {[
-                  {icon: <Truck size={18} />, label: 'Abholung', desc: 'Wir holen es ab'},
+                  {
+                    icon: <Truck size={18} />,
+                    label: 'Abholung',
+                    value: 'abholung',
+                    desc: 'Wir holen es ab',
+                  },
                   {
                     icon: <MapPin size={18} />,
                     label: 'Bring-In',
+                    value: 'bring-in',
                     desc: 'Persönlich abgeben',
-                    active: true,
+                    defaultChecked: true,
                   },
-                  {icon: <Mail size={18} />, label: 'Versand', desc: 'Per Post senden'},
+                  {
+                    icon: <Mail size={18} />,
+                    label: 'Versand',
+                    value: 'versand',
+                    desc: 'Per Post senden',
+                  },
                 ].map((type, i) => (
-                  <div
+                  <label
                     key={i}
-                    className={`p-6 rounded-2xl border-2 transition-all cursor-pointer ${type.active ? 'border-blue-500 bg-blue-50' : 'border-brand-grey bg-brand-grey/30 hover:border-blue-200'}`}
+                    className="group relative block cursor-pointer"
                   >
-                    <div className={`mb-4 ${type.active ? 'text-blue-600' : 'text-brand-navy'} `}>
-                      {type.icon}
+                    <input
+                      type="radio"
+                      name="serviceType"
+                      value={type.value}
+                      defaultChecked={type.defaultChecked}
+                      className="peer sr-only"
+                    />
+                    <div className="h-full p-6 rounded-2xl border-2 border-brand-grey bg-brand-grey/30 text-brand-navy transition-all peer-checked:border-blue-500 peer-checked:bg-blue-50 peer-checked:text-blue-600 group-hover:border-blue-200">
+                      <div className="mb-4 transition-colors">
+                        {type.icon}
+                      </div>
+                      <div className="font-bold text-sm text-brand-navy">{type.label}</div>
+                      <div className="text-[10px] text-brand-navy/40 mt-1 uppercase tracking-tighter">
+                        {type.desc}
+                      </div>
                     </div>
-                    <div className="font-bold text-sm">{type.label}</div>
-                    <div className="text-[10px] text-brand-navy/40 mt-1 uppercase tracking-tighter">
-                      {type.desc}
-                    </div>
-                  </div>
+                  </label>
                 ))}
               </div>
             </div>
@@ -182,6 +224,20 @@ export default function BookingPage() {
                     placeholder="z.B. iPhone 14"
                     className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 focus:border-brand-lime focus:outline-none"
                   />
+                </div>
+                <div>
+                  <label className="block text-[10px] font-bold text-white/40 tracking-widest mb-2 uppercase">
+                    IMEI-Nummer optional
+                  </label>
+                  <input
+                    type="text"
+                    inputMode="numeric"
+                    placeholder="z.B. 356000000000000"
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 focus:border-brand-lime focus:outline-none"
+                  />
+                  <p className="text-[9px] text-white/30 mt-2">
+                    Freiwillig, hilfreich zur Gerätezuordnung.
+                  </p>
                 </div>
                 <div>
                   <label className="block text-[10px] font-bold text-white/40 tracking-widest mb-2 uppercase">
