@@ -176,12 +176,12 @@ export default function PricingTable() {
             <label className="block text-[10px] font-bold text-brand-navy/40 tracking-widest mb-4 uppercase">
               Modell wählen
             </label>
-            <div className="grid grid-cols-2 gap-2 max-h-[350px] overflow-y-auto pr-2 custom-scrollbar">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-[350px] overflow-y-auto pr-2 custom-scrollbar">
               {currentBrandData.map((item) => (
                 <button
                   key={item.model}
                   onClick={() => setSelectedModel(item.model)}
-                  className={`px-4 py-3 rounded-xl text-xs font-bold transition-all text-left truncate ${selectedModel === item.model ? 'bg-brand-navy text-white shadow-lg' : 'bg-white text-brand-navy/60 hover:bg-white/80 border border-transparent hover:border-brand-navy/10'}`}
+                  className={`px-4 py-3 rounded-xl text-xs font-bold transition-all text-left whitespace-normal break-words leading-snug ${selectedModel === item.model ? 'bg-brand-navy text-white shadow-lg' : 'bg-white text-brand-navy/60 hover:bg-white/80 border border-transparent hover:border-brand-navy/10'}`}
                   type="button"
                 >
                   {item.model}
@@ -247,6 +247,11 @@ export default function PricingTable() {
             </div>
             {selectedBrand === 'apple' || selectedBrand === 'samsung' ? (
               <>
+                {selectedBrand === 'samsung' && selectedModel ? (
+                  <div className="text-sm font-bold text-white/80 mb-4 text-left">
+                    {selectedModel}
+                  </div>
+                ) : null}
                 <div className="text-[10px] font-bold tracking-[0.3em] text-white/40 mb-2 uppercase">
                   {selectedBrand === 'samsung' ? 'CIRCA PREIS' : 'FINALER PREIS'}
                 </div>
