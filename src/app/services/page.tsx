@@ -65,7 +65,7 @@ export default function ServicesPage() {
 
   return (
     <main className="pt-32 pb-24">
-      <section className="max-w-7xl mx-auto px-6 md:px-12">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         <div className="mb-14 md:mb-20 max-w-3xl">
           <span className="text-blue-600 text-[10px] font-bold tracking-[0.2em] uppercase">
             UNSERE EXPERTISE
@@ -141,7 +141,7 @@ export default function ServicesPage() {
           </div>
           <Link
             href="/termine"
-            className="bg-brand-lime text-brand-navy px-8 py-4 rounded-2xl font-bold text-center shrink-0"
+            className="bg-brand-lime text-brand-navy px-7 py-4 sm:px-8 rounded-2xl font-bold text-center shrink-0"
           >
             Termin anfragen
           </Link>

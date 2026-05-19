@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <main className="pt-32 pb-24">
-      <section className="max-w-7xl mx-auto px-6 md:px-12">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         <div className="grid lg:grid-cols-2 gap-16">
           <div>
             <span className="text-blue-600 text-[10px] font-bold tracking-[0.2em] uppercase">

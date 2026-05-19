@@ -30,7 +30,7 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-6'}`}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center text-brand-navy">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 flex items-center text-brand-navy">
         <Link href="/" className="flex-1 text-xl font-bold tracking-tight">
           OsiTech Smart Repair
         </Link>

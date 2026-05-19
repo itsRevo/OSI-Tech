@@ -28,7 +28,7 @@ export default function HomePage() {
   return (
     <main className="pt-32">
       <section className="pb-24 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 grid lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
             initial={{opacity: 0, x: -50}}
             animate={{opacity: 1, x: 0}}
@@ -148,7 +148,7 @@ export default function HomePage() {
       </section>
 
       <section className="py-24 bg-brand-grey/30">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
           <div className="text-center mb-16">
             <span className="text-blue-600 text-[10px] font-bold tracking-[0.2em] uppercase">
               WARUM UNS WÄHLEN?
@@ -196,7 +196,7 @@ export default function HomePage() {
       </section>
 
       <section className="py-24">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
               <span className="text-blue-600 text-[10px] font-bold tracking-[0.2em] uppercase">

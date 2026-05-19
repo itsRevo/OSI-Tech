@@ -13,12 +13,12 @@ export const metadata: Metadata = {
 export default function BookingPage() {
   return (
     <main className="pt-32 pb-24">
-      <section id="booking" className="max-w-7xl mx-auto px-6 md:px-12">
+      <section id="booking" className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         <div className="max-w-3xl mb-14">
           <span className="text-blue-600 text-[10px] font-bold tracking-[0.2em] uppercase">
             TERMIN ANFRAGEN
           </span>
-          <h1 className="text-5xl md:text-6xl font-bold mt-4 italic">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mt-4 italic">
             Reparatur-Termin <span className="text-blue-600 not-italic">planen</span>
           </h1>
           <p className="text-brand-navy/60 mt-6 text-lg leading-relaxed">
@@ -174,7 +174,7 @@ export default function BookingPage() {
               </div>
             </div>
 
-            <button className="w-full bg-brand-navy text-white py-6 rounded-[20px] font-bold text-lg hover:bg-blue-600 transition-all shadow-xl" type="button">
+            <button className="w-full bg-brand-navy text-white py-5 sm:py-6 rounded-[20px] font-bold text-base sm:text-lg hover:bg-blue-600 transition-all shadow-xl" type="button">
               Reparatur-Termin anfragen
             </button>
             <p className="text-center text-brand-navy/30 text-xs mt-6">

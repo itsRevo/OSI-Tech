@@ -128,7 +128,7 @@ export default async function CityPage({params}: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{__html: JSON.stringify(jsonLd)}}
       />
-      <section className="max-w-7xl mx-auto px-6 md:px-12">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div>
             <span className="text-blue-600 text-[10px] font-bold tracking-[0.2em] uppercase">
@@ -143,13 +143,13 @@ export default async function CityPage({params}: PageProps) {
             <div className="flex flex-wrap gap-4 mt-10">
               <Link
                 href="/termine"
-                className="bg-brand-navy text-white px-8 py-4 rounded-2xl font-bold inline-flex items-center"
+                className="bg-brand-navy text-white px-7 py-4 sm:px-8 rounded-2xl font-bold inline-flex items-center"
               >
                 Termin anfragen <ArrowRight size={18} className="ml-3" />
               </Link>
               <Link
                 href="/preise"
-                className="bg-brand-grey text-brand-navy px-8 py-4 rounded-2xl font-bold"
+                className="bg-brand-grey text-brand-navy px-7 py-4 sm:px-8 rounded-2xl font-bold"
               >
                 Preise ansehen
               </Link>
@@ -179,7 +179,7 @@ export default async function CityPage({params}: PageProps) {
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-6 md:px-12 mt-24">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 mt-24">
         <div className="grid md:grid-cols-3 gap-8">
           {services.map((service) => (
             <article key={service.title} className="bg-white border border-brand-grey rounded-[28px] p-8">
@@ -197,7 +197,7 @@ export default async function CityPage({params}: PageProps) {
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-6 md:px-12 mt-24">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 mt-24">
         <div className="bg-brand-navy text-white rounded-[36px] p-10 md:p-14 grid lg:grid-cols-3 gap-10 items-center">
           <div className="lg:col-span-2">
             <Clock className="text-brand-lime mb-6" size={32} />

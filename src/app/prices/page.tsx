@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function PricingPage() {
   return (
     <main className="pt-32 pb-24">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 mb-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 mb-16">
         <span className="text-blue-600 text-[10px] font-bold tracking-[0.2em] uppercase">
           SMART RECHNER
         </span>
@@ -29,10 +29,10 @@ export default function PricingPage() {
           Modellen erstellen wir ein individuelles Angebot.
         </p>
       </div>
-      <div className="max-w-5xl mx-auto px-6">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
         <PricingTable />
       </div>
-      <section className="max-w-7xl mx-auto px-6 md:px-12 mt-20">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 mt-20">
         <div className="grid md:grid-cols-3 gap-8">
           {[
             {
