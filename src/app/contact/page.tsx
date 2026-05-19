@@ -49,7 +49,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h4 className="font-bold text-xl mb-1">Telefon</h4>
-                  <p className="text-brand-navy/60">0157 5644106</p>
+                  <p className="text-brand-navy/60">0157 56441016</p>
                 </div>
               </div>
               <div className="flex items-start">

@@ -107,7 +107,7 @@ export default function Footer() {
             <ul className="space-y-4 text-sm font-medium">
               <li className="flex items-center">
                 <Phone size={14} className="mr-2 text-brand-lime" /> +49 (0) 157
-                5644106
+                56441016
               </li>
               <li className="flex items-center">
                 <Mail size={14} className="mr-2 text-brand-lime" />

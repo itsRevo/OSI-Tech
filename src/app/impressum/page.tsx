@@ -21,7 +21,7 @@ export default function ImpressumPage() {
           </div>
           <div>
             <h2 className="text-xl font-bold text-brand-navy mb-4">Kontakt:</h2>
-            <p>Telefon: 0157 5644106</p>
+            <p>Telefon: 0157 56441016</p>
             <p>E-Mail: info@osi-tech.de</p>
           </div>
           <div>

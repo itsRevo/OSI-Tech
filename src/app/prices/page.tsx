@@ -22,10 +22,10 @@ export default function PricingPage() {
           Transparente <span className="text-blue-600 not-italic">Preiseliste</span>
         </h1>
         <p className="text-brand-navy/60 mt-4 max-w-2xl text-lg leading-relaxed">
-          Wählen Sie Ihr Modell und die gewünschte Qualität, um den finalen
-          Preis inkl. Einbau zu sehen. Samsung-Preise sind Circa-Angaben, weil
+          Wählen Sie Ihr Modell und die gewünschte Qualität, um den Circa-Preis
+          inkl. Einbau zu sehen. Alle Preise sind Circa-Angaben, da sich
           Ersatzteilpreise je nach Farbe, Display-Version und Lieferbarkeit oft
-          variieren. Bei Wasserschäden, Platinenschäden und nicht gelisteten
+          verändern. Bei Wasserschäden, Platinenschäden und nicht gelisteten
           Modellen erstellen wir ein individuelles Angebot.
         </p>
       </div>

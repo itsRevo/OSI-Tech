@@ -156,6 +156,10 @@ export default function PricingTable() {
 
   return (
     <div className="bg-brand-grey rounded-[40px] p-8 md:p-12 shadow-inner border border-brand-grey/50">
+      <p className="text-brand-navy/50 text-sm leading-relaxed mb-6">
+        Hinweis: Alle Preise sind Circa-Angaben, da Ersatzteilpreise je nach
+        Farbe, Verfügbarkeit und Display-Version variieren können.
+      </p>
       <div className="flex justify-center flex-wrap gap-4 mb-12">
         {brands.map((brand) => (
           <button
@@ -195,7 +199,7 @@ export default function PricingTable() {
             </div>
             {selectedBrand === 'samsung' && (
               <p className="mt-5 text-xs leading-relaxed text-brand-navy/50">
-                Hinweis: Samsung-Preise sind Circa-Angaben. Ersatzteilpreise
+                Hinweis: Alle Preise sind Circa-Angaben. Ersatzteilpreise
                 variieren häufig und können je nach Farbe, Lieferbarkeit und
                 Display-Version abweichen.
               </p>
@@ -253,7 +257,7 @@ export default function PricingTable() {
                   </div>
                 ) : null}
                 <div className="text-[10px] font-bold tracking-[0.3em] text-white/40 mb-2 uppercase">
-                  {selectedBrand === 'samsung' ? 'CIRCA PREIS' : 'FINALER PREIS'}
+                  CIRCA PREIS
                 </div>
                 <div className="text-5xl font-black">
                   {selectedBrand === 'samsung' && currentData.prefix
