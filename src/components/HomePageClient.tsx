@@ -37,7 +37,7 @@ export default function HomePage() {
             <span className="text-blue-600 font-bold tracking-[0.2em] text-[10px] uppercase block mb-4 italic">
               PRÄZISION TRIFFT MOBILITÄT
             </span>
-            <h1 className="text-7xl md:text-8xl font-black text-brand-navy leading-[0.9] italic mb-8">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-brand-navy leading-[0.9] italic mb-8">
               Smart <span className="text-blue-600 not-italic">Device</span>
               <br />
               Expertise.
@@ -56,19 +56,19 @@ export default function HomePage() {
             <div className="flex flex-wrap gap-4">
               <Link
                 href="/termine"
-                className="bg-brand-navy text-white px-10 py-5 rounded-2xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all flex items-center"
+                className="bg-brand-navy text-white px-7 py-4 sm:px-10 sm:py-5 rounded-2xl font-bold text-base sm:text-lg hover:shadow-2xl hover:scale-105 transition-all flex items-center"
               >
                 Termin buchen <ArrowRight size={20} className="ml-3" />
               </Link>
               <Link
                 href="/preise"
-                className="bg-white border-2 border-brand-grey px-10 py-5 rounded-2xl font-bold text-lg text-brand-navy hover:bg-brand-grey transition-all"
+                className="bg-white border-2 border-brand-grey px-7 py-4 sm:px-10 sm:py-5 rounded-2xl font-bold text-base sm:text-lg text-brand-navy hover:bg-brand-grey transition-all"
               >
                 Preise prüfen
               </Link>
             </div>
 
-            <div className="mt-12 grid grid-cols-3 gap-4 max-w-xl">
+            <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-xl">
               {[
                 {value: '60 Min.', label: 'typische Express-Reparatur'},
                 {value: '6 Mon.', label: 'Garantie auf viele Arbeiten'},
@@ -88,7 +88,7 @@ export default function HomePage() {
               ))}
             </div>
 
-            <div className="mt-12 flex items-center space-x-8">
+            <div className="mt-12 flex flex-col sm:flex-row sm:items-center sm:space-x-8 gap-6 sm:gap-0">
               <div className="flex -space-x-4">
                 {[1, 2, 3, 4].map((i) => (
                   <div
@@ -122,19 +122,19 @@ export default function HomePage() {
             className="relative"
           >
             <div className="absolute inset-0 bg-blue-600 rounded-[60px] rotate-6 opacity-5 blur-3xl" />
-            <div className="relative bg-white rounded-[60px] p-4 shadow-2xl">
+            <div className="relative bg-white rounded-[60px] p-3 sm:p-4 shadow-2xl">
               <img
                 src="https://images.unsplash.com/photo-1597740985671-2a8a3b80502e?auto=format&fit=crop&q=80&w=1000"
                 className="rounded-[50px] w-full aspect-[4/5] object-cover"
                 alt="Repair Tech"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute -bottom-10 -left-10 bg-brand-lime p-8 rounded-[40px] shadow-xl max-w-[240px]">
+              <div className="hidden md:block absolute -bottom-10 -left-10 bg-brand-lime p-8 rounded-[40px] shadow-xl max-w-[240px]">
                 <h3 className="text-3xl font-black text-brand-navy leading-tight">
                   Meist am selben Tag fertig
                 </h3>
               </div>
-              <div className="absolute top-10 -right-10 bg-brand-navy text-white p-8 rounded-[40px] shadow-xl italic">
+              <div className="hidden md:block absolute top-10 -right-10 bg-brand-navy text-white p-8 rounded-[40px] shadow-xl italic">
                 <ShieldCheck size={40} className="text-brand-lime mb-2" />
                 <h4 className="font-bold text-sm">
                   Garantierter

@@ -66,11 +66,11 @@ export default function ServicesPage() {
   return (
     <main className="pt-32 pb-24">
       <section className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="mb-20 max-w-3xl">
+        <div className="mb-14 md:mb-20 max-w-3xl">
           <span className="text-blue-600 text-[10px] font-bold tracking-[0.2em] uppercase">
             UNSERE EXPERTISE
           </span>
-          <h1 className="text-5xl md:text-6xl font-bold mt-4 italic">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mt-4 italic">
             Dienstleistungen <span className="text-blue-600 not-italic">& Support</span>
           </h1>
           <p className="text-brand-navy/60 mt-6 text-lg leading-relaxed">

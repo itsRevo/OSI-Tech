@@ -129,12 +129,12 @@ export default async function CityPage({params}: PageProps) {
         dangerouslySetInnerHTML={{__html: JSON.stringify(jsonLd)}}
       />
       <section className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div>
             <span className="text-blue-600 text-[10px] font-bold tracking-[0.2em] uppercase">
               {page.distance}
             </span>
-            <h1 className="text-5xl md:text-7xl font-black text-brand-navy leading-tight italic mt-4">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-brand-navy leading-tight italic mt-4">
               {page.title}
             </h1>
             <p className="text-brand-navy/60 text-lg leading-relaxed mt-8 max-w-xl">
@@ -155,7 +155,7 @@ export default async function CityPage({params}: PageProps) {
               </Link>
             </div>
           </div>
-          <div className="bg-brand-grey rounded-[36px] p-8 md:p-12">
+          <div className="bg-brand-grey rounded-[36px] p-7 sm:p-8 md:p-12">
             <MapPin className="text-blue-600 mb-8" size={36} />
             <h2 className="text-3xl font-bold italic mb-6">
               Reparatur-Service für {page.city}

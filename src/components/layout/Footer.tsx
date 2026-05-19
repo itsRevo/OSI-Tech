@@ -10,9 +10,9 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="bg-brand-navy text-white py-24">
+    <footer className="bg-brand-navy text-white py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="grid md:grid-cols-4 gap-16 mb-24">
+        <div className="grid md:grid-cols-4 gap-12 md:gap-16 mb-16 md:mb-24">
           <div className="col-span-2">
             <h2 className="text-4xl font-bold italic mb-6">
               OsiTech{' '}
@@ -71,7 +71,7 @@ export default function Footer() {
                   href="/contact"
                   className="hover:text-brand-lime transition-colors"
                 >
-                  Standort
+                  Kontakt
                 </Link>
               </li>
               <li>
@@ -115,14 +115,14 @@ export default function Footer() {
               </li>
               <li className="flex items-center">
                 <MapPin size={14} className="mr-2 text-brand-lime" />
-                Deichstraße 5, Rhede
+                <span className="break-words">Deichstraße 5, Rhede</span>
               </li>
             </ul>
           </div>
         </div>
-        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs text-white/20 font-medium">
+        <div className="pt-10 md:pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs text-white/20 font-medium">
           <p>© 2024 OsiTech Smart Repair. Alle Rechte vorbehalten.</p>
-          <div className="flex space-x-8 mt-4 md:mt-0">
+          <div className="flex flex-col sm:flex-row sm:space-x-8 mt-4 md:mt-0 gap-3 sm:gap-0 items-center">
             <Link href="/impressum" className="hover:text-white transition-colors">
               Impressum
             </Link>

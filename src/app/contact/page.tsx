@@ -20,7 +20,7 @@ export default function ContactPage() {
             <span className="text-blue-600 text-[10px] font-bold tracking-[0.2em] uppercase">
               KONTAKT
             </span>
-            <h1 className="text-5xl md:text-6xl font-bold mt-4 italic">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mt-4 italic">
               Kontakt <span className="text-blue-600 not-italic">& Öffnungszeiten</span>
             </h1>
             <p className="text-brand-navy/60 mt-8 text-lg leading-relaxed max-w-md">
@@ -76,7 +76,7 @@ export default function ContactPage() {
               </div>
             </div>
           </div>
-          <div className="bg-brand-grey rounded-[40px] overflow-hidden shadow-sm p-10 flex flex-col justify-center">
+          <div className="bg-brand-grey rounded-[40px] overflow-hidden shadow-sm p-7 sm:p-10 flex flex-col justify-center">
             <h2 className="text-3xl font-bold">Termin vereinbaren</h2>
             <p className="text-brand-navy/60 mt-4 text-lg leading-relaxed max-w-md">
               Schreib uns kurz die Geräteinfos – wir melden uns mit einem passenden Zeitfenster.

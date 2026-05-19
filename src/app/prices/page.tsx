@@ -18,7 +18,7 @@ export default function PricingPage() {
         <span className="text-blue-600 text-[10px] font-bold tracking-[0.2em] uppercase">
           SMART RECHNER
         </span>
-        <h1 className="text-5xl md:text-6xl font-bold mt-4 italic">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mt-4 italic">
           Transparente <span className="text-blue-600 not-italic">Preiseliste</span>
         </h1>
         <p className="text-brand-navy/60 mt-4 max-w-2xl text-lg leading-relaxed">

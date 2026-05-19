@@ -26,8 +26,8 @@ export default function BookingPage() {
             Zeitfenster, Ersatzteilverfügbarkeit und voraussichtlicher Dauer.
           </p>
         </div>
-        <div className="grid lg:grid-cols-3 gap-16">
-          <div className="lg:col-span-2 bg-white rounded-[40px] p-8 md:p-16 shadow-sm border border-brand-grey">
+        <div className="grid lg:grid-cols-3 gap-10 lg:gap-16">
+          <div className="lg:col-span-2 bg-white rounded-[40px] p-7 sm:p-8 md:p-16 shadow-sm border border-brand-grey">
             <div className="flex items-center space-x-4 mb-12">
               <div className="w-12 h-12 bg-brand-navy text-white rounded-xl flex items-center justify-center">
                 <Calendar size={24} />
@@ -127,7 +127,7 @@ export default function BookingPage() {
               <label className="block text-[10px] font-bold text-brand-navy/40 tracking-widest mb-4 uppercase">
                 Service-Art
               </label>
-              <div className="grid md:grid-cols-3 gap-4">
+              <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {[
                   {
                     icon: <Truck size={18} />,
