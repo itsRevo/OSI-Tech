@@ -46,9 +46,9 @@ export default function RootLayout({
   children,
 }: Readonly<{children: React.ReactNode}>) {
   return (
-    <html lang="de">
-      <body>
-        <div className="min-h-screen bg-white">
+    <html lang="de" className="overflow-x-hidden">
+      <body className="overflow-x-hidden">
+        <div className="min-h-screen bg-white overflow-x-hidden">
           <Header />
           {children}
           <Footer />
