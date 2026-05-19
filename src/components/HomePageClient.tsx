@@ -15,6 +15,7 @@ import {
   Star,
   Tablet,
   ThumbsUp,
+  Truck,
   Watch,
   Wrench,
   Zap,
@@ -44,9 +45,14 @@ export default function HomePage() {
             <p className="text-brand-navy/60 text-lg max-w-md leading-relaxed mb-10">
               Ihr zertifizierter Partner für High-End Smartphone- &
               Laptop-Reparaturen. Schnell, transparent und mit modernster
-              Technik am Standort Rhede. Für iPhone, Samsung, Google Pixel,
-              iPad, MacBook und viele weitere Geräte.
+              Technik – mobil und auf Wunsch mit kostenlosem Lieferservice in
+              der Umgebung. Für iPhone, Samsung, Google Pixel, iPad, MacBook
+              und viele weitere Geräte.
             </p>
+            <div className="mb-6 inline-flex items-center gap-3 rounded-2xl bg-blue-50 text-blue-700 px-5 py-3 font-bold text-sm border border-blue-100">
+              <Truck size={18} />
+              Kostenloser Lieferservice in der Umgebung
+            </div>
             <div className="flex flex-wrap gap-4">
               <Link
                 href="/termine"

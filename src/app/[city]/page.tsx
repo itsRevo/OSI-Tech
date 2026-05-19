@@ -108,7 +108,7 @@ export default async function CityPage({params}: PageProps) {
     name: 'OsiTech Smart Repair',
     image: 'https://osi-tech.de/og-image.jpg',
     url: `https://osi-tech.de/${slug}`,
-    telephone: '+491575644106',
+    telephone: '+4915756441016',
     email: 'info@osi-tech.de',
     address: {
       '@type': 'PostalAddress',
