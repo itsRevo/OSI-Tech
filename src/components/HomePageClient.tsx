@@ -71,7 +71,7 @@ export default function HomePage() {
             <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-xl">
               {[
                 {value: '60 Min.', label: 'typische Express-Reparatur'},
-                {value: '6 Mon.', label: 'Garantie auf viele Arbeiten'},
+                {value: '3 Mon.', label: 'Garantie auf viele Arbeiten'},
                 {value: '3 Städte', label: 'Rhede, Bocholt, Borken'},
               ].map((item) => (
                 <div
@@ -153,8 +153,11 @@ export default function HomePage() {
             <span className="text-blue-600 text-[10px] font-bold tracking-[0.2em] uppercase">
               WARUM UNS WÄHLEN?
             </span>
-            <h2 className="text-5xl font-bold mt-4 italic">
-              Unser <span className="text-blue-600 not-italic">Qualitätsversprechen</span>
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold mt-4 italic leading-tight max-w-full break-all">
+              Unser
+              <span className="block text-blue-600 not-italic max-w-full break-all">
+                Qualitätsversprechen
+              </span>
             </h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -440,7 +443,7 @@ export default function HomePage() {
                 Vor Ort abgeben, prüfen lassen, reparieren lassen.
               </h2>
               <p className="text-white/60 leading-relaxed mb-8">
-                Sie finden OsiTech Smart Repair an der Deichstraße 5 in 46414
+                Sie finden OsiTech Smart Repair an der Wibbeltstraße 35 in 46414
                 Rhede. Für viele Reparaturen reicht eine kurze Fehlerbeschreibung
                 mit Modellangabe, damit wir Ersatzteile und Zeitfenster besser
                 planen können.
@@ -457,7 +460,7 @@ export default function HomePage() {
                 {
                   icon: <Clock size={24} />,
                   title: 'Öffnungszeiten',
-                  text: 'Mo - Fr: 09:00 - 18:00 Uhr. Sa: 10:00 - 14:00 Uhr.',
+                  text: 'Mo - Fr: 10:00 - 13:00 Uhr / 14:00 - 18:00 Uhr. Sa: 10:00 - 15:00 Uhr.',
                 },
                 {
                   icon: <Zap size={24} />,

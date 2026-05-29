@@ -70,7 +70,7 @@ export default function ContactPage() {
                   <p className="text-brand-navy/60">
                     Mo - Fr: 10:00 - 13:00 Uhr / 14:00 - 18:00 Uhr
                     <br />
-                    Sa: 10:00 - 16:00 Uhr
+                    Sa: 10:00 - 15:00 Uhr
                   </p>
                 </div>
               </div>

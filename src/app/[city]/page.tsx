@@ -112,7 +112,7 @@ export default async function CityPage({params}: PageProps) {
     email: 'info@osi-tech.de',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Deichstraße 5',
+      streetAddress: 'Wibbeltstraße 35',
       postalCode: '46414',
       addressLocality: 'Rhede',
       addressCountry: 'DE',

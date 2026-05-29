@@ -9,7 +9,7 @@ export default function ImpressumPage() {
               Angaben gemäß § 5 TMG:
             </h2>
             <p>OsiTech Smart Repair</p>
-            <p>Deichstraße 5</p>
+            <p>Wibbeltstraße 35</p>
             <p>46414 Rhede</p>
             <p>Deutschland</p>
           </div>
@@ -29,7 +29,7 @@ export default function ImpressumPage() {
               Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:
             </h2>
             <p>Osman Habib El-Molla</p>
-            <p>Deichstraße 5</p>
+            <p>Wibbeltstraße 35</p>
             <p>46414 Rhede</p>
           </div>
           <div className="pt-12 border-t border-brand-grey">

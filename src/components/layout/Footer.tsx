@@ -115,7 +115,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center">
                 <MapPin size={14} className="mr-2 text-brand-lime" />
-                <span className="break-words">Deichstraße 5, Rhede</span>
+                <span className="break-words">Wibbeltstraße 35, Rhede</span>
               </li>
             </ul>
           </div>
