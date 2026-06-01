@@ -77,15 +77,91 @@ export default function ContactPage() {
             </div>
           </div>
           <div className="bg-brand-grey rounded-[40px] overflow-hidden shadow-sm p-7 sm:p-10 flex flex-col justify-center">
-            <h2 className="text-3xl font-bold">Termin vereinbaren</h2>
+            <h2 className="text-3xl font-bold">Kontakt aufnehmen</h2>
             <p className="text-brand-navy/60 mt-4 text-lg leading-relaxed max-w-md">
-              Schreib uns kurz die Geräteinfos – wir melden uns mit einem passenden Zeitfenster.
+              Schreib uns kurz die Geräteinfos oder deine Frage – wir melden uns
+              schnellstmöglich zurück.
             </p>
+            <form action="/api/inquiry" method="POST" className="mt-8 space-y-5">
+              <input type="hidden" name="source" value="kontakt" />
+
+              <div>
+                <label className="block text-[10px] font-bold text-brand-navy/40 tracking-widest mb-2 uppercase">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Ihr Name"
+                  className="w-full bg-white/70 border border-brand-navy/10 rounded-xl px-5 py-4 focus:ring-2 focus:ring-blue-500 transition-all font-medium"
+                />
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-[10px] font-bold text-brand-navy/40 tracking-widest mb-2 uppercase">
+                    Telefon
+                  </label>
+                  <input
+                    type="text"
+                    name="phone"
+                    placeholder="0157 56441016"
+                    className="w-full bg-white/70 border border-brand-navy/10 rounded-xl px-5 py-4 focus:ring-2 focus:ring-blue-500 transition-all font-medium"
+                  />
+                </div>
+                <div>
+                  <label className="block text-[10px] font-bold text-brand-navy/40 tracking-widest mb-2 uppercase">
+                    E-Mail
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="beispiel@mail.de"
+                    className="w-full bg-white/70 border border-brand-navy/10 rounded-xl px-5 py-4 focus:ring-2 focus:ring-blue-500 transition-all font-medium"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-[10px] font-bold text-brand-navy/40 tracking-widest mb-2 uppercase">
+                  Gerät (optional)
+                </label>
+                <input
+                  type="text"
+                  name="device"
+                  placeholder="z.B. iPhone 14 Pro"
+                  className="w-full bg-white/70 border border-brand-navy/10 rounded-xl px-5 py-4 focus:ring-2 focus:ring-blue-500 transition-all font-medium"
+                />
+              </div>
+
+              <div>
+                <label className="block text-[10px] font-bold text-brand-navy/40 tracking-widest mb-2 uppercase">
+                  Nachricht
+                </label>
+                <textarea
+                  name="issue"
+                  placeholder="Worum geht es? (z.B. Preis anfragen, Display defekt, Akku schnell leer ...)"
+                  className="w-full bg-white/70 border border-brand-navy/10 rounded-xl px-5 py-4 h-28 focus:ring-2 focus:ring-blue-500 transition-all font-medium"
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="w-full bg-brand-navy text-white py-4 rounded-2xl font-bold text-lg hover:bg-blue-600 transition-all shadow-xl"
+              >
+                Anfrage senden
+              </button>
+
+              <p className="text-center text-brand-navy/30 text-xs">
+                Durch das Absenden akzeptieren Sie unsere Datenschutzbestimmungen.
+              </p>
+            </form>
+
             <Link
               href="/termine"
-              className="mt-8 inline-flex items-center justify-center bg-brand-navy text-white px-6 py-4 rounded-2xl font-bold text-lg hover:bg-opacity-90 transition-all"
+              className="mt-6 inline-flex items-center justify-center bg-white border-2 border-brand-grey px-6 py-4 rounded-2xl font-bold text-brand-navy hover:bg-brand-grey transition-all"
             >
-              Jetzt Termin vereinbaren
+              Lieber Termin buchen
             </Link>
           </div>
         </div>

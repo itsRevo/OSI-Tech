@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/bocholt',
     '/borken',
     '/impressum',
+    '/datenschutz',
   ];
 
   return routes.map((route) => ({

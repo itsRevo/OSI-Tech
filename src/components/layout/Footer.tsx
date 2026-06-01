@@ -137,9 +137,9 @@ export default function Footer() {
             <Link href="/impressum" className="hover:text-white transition-colors">
               Impressum
             </Link>
-            <a href="#" className="hover:text-white transition-colors">
+            <Link href="/datenschutz" className="hover:text-white transition-colors">
               Datenschutz
-            </a>
+            </Link>
             <a href="#" className="hover:text-white transition-colors">
               AGB
             </a>

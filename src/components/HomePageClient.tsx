@@ -202,10 +202,10 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
-              <span className="text-blue-600 text-[10px] font-bold tracking-[0.2em] uppercase">
+              <span className="text-blue-600 text-xs sm:text-[10px] font-bold tracking-[0.2em] uppercase">
                 SO LÄUFT ES AB
               </span>
-              <h2 className="text-5xl font-bold mt-4 italic mb-8">
+              <h2 className="text-4xl sm:text-5xl font-bold mt-4 italic mb-8">
                 Von der Diagnose bis zur{' '}
                 <span className="text-blue-600 not-italic">fertigen Reparatur</span>
               </h2>
