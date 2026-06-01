@@ -35,6 +35,9 @@ export default function BookingPage() {
               <h3 className="text-3xl font-bold">Buchungsformular</h3>
             </div>
 
+            <form action="/api/inquiry" method="POST">
+              <input type="hidden" name="source" value="termin" />
+
             <div className="grid md:grid-cols-2 gap-8 mb-10">
               <div>
                 <label className="block text-[10px] font-bold text-brand-navy/40 tracking-widest mb-2 uppercase">
@@ -42,6 +45,7 @@ export default function BookingPage() {
                 </label>
                 <input
                   type="text"
+                  name="name"
                   placeholder="Ihr vollständiger Name"
                   className="w-full bg-brand-grey border-none rounded-xl px-5 py-4 focus:ring-2 focus:ring-blue-500 transition-all font-medium"
                 />
@@ -52,6 +56,7 @@ export default function BookingPage() {
                 </label>
                 <input
                   type="text"
+                  name="phone"
                   placeholder="+49 000 000000"
                   className="w-full bg-brand-grey border-none rounded-xl px-5 py-4 focus:ring-2 focus:ring-blue-500 transition-all font-medium"
                 />
@@ -64,6 +69,7 @@ export default function BookingPage() {
               </label>
               <input
                 type="email"
+                name="email"
                 placeholder="beispiel@mail.de"
                 className="w-full bg-brand-grey border-none rounded-xl px-5 py-4 focus:ring-2 focus:ring-blue-500 transition-all font-medium"
               />
@@ -101,6 +107,7 @@ export default function BookingPage() {
               </label>
               <input
                 type="date"
+                name="desiredDate"
                 className="w-full bg-brand-grey border-none rounded-xl px-5 py-4 focus:ring-2 focus:ring-blue-500 transition-all font-medium"
               />
             </div>
@@ -118,6 +125,7 @@ export default function BookingPage() {
                 Problembeschreibung
               </label>
               <textarea
+                name="issue"
                 placeholder="Beschreiben Sie das Problem so detailliert wie möglich..."
                 className="w-full bg-brand-grey border-none rounded-xl px-5 py-4 h-32 focus:ring-2 focus:ring-blue-500 transition-all font-medium"
               />
@@ -174,12 +182,13 @@ export default function BookingPage() {
               </div>
             </div>
 
-            <button className="w-full bg-brand-navy text-white py-5 sm:py-6 rounded-[20px] font-bold text-base sm:text-lg hover:bg-blue-600 transition-all shadow-xl" type="button">
+            <button className="w-full bg-brand-navy text-white py-5 sm:py-6 rounded-[20px] font-bold text-base sm:text-lg hover:bg-blue-600 transition-all shadow-xl" type="submit">
               Reparatur-Termin anfragen
             </button>
             <p className="text-center text-brand-navy/30 text-xs mt-6">
               Durch das Absenden akzeptieren Sie unsere Datenschutzbestimmungen.
             </p>
+            </form>
           </div>
 
           <div className="space-y-8">
@@ -195,12 +204,15 @@ export default function BookingPage() {
               </div>
 
               <div className="space-y-6 text-left">
+                <form action="/api/inquiry" method="POST" className="space-y-6 text-left">
+                  <input type="hidden" name="source" value="express" />
                 <div>
                   <label className="block text-[10px] font-bold text-white/40 tracking-widest mb-2 uppercase">
                     Name
                   </label>
                   <input
                     type="text"
+                    name="name"
                     placeholder="Name"
                     className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 focus:border-brand-lime focus:outline-none"
                   />
@@ -211,6 +223,7 @@ export default function BookingPage() {
                   </label>
                   <input
                     type="text"
+                    name="phone"
                     placeholder="Telefon"
                     className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 focus:border-brand-lime focus:outline-none"
                   />
@@ -221,6 +234,7 @@ export default function BookingPage() {
                   </label>
                   <input
                     type="text"
+                    name="device"
                     placeholder="z.B. iPhone 14"
                     className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 focus:border-brand-lime focus:outline-none"
                   />
@@ -231,6 +245,7 @@ export default function BookingPage() {
                   </label>
                   <input
                     type="text"
+                    name="imei"
                     inputMode="numeric"
                     placeholder="z.B. 356000000000000"
                     className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 focus:border-brand-lime focus:outline-none"
@@ -243,17 +258,25 @@ export default function BookingPage() {
                   <label className="block text-[10px] font-bold text-white/40 tracking-widest mb-2 uppercase">
                     Dringlichkeit
                   </label>
-                  <select className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 focus:border-brand-lime focus:outline-none text-white overflow-hidden">
-                    <option className="text-brand-navy">Normal (2-3 Tage)</option>
-                    <option className="text-brand-navy">Express (Heute)</option>
+                  <select
+                    name="urgency"
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 focus:border-brand-lime focus:outline-none text-white overflow-hidden"
+                  >
+                    <option value="normal" className="text-brand-navy">
+                      Normal (2-3 Tage)
+                    </option>
+                    <option value="express" className="text-brand-navy">
+                      Express (Heute)
+                    </option>
                   </select>
                 </div>
                 <p className="text-[9px] text-white/30 italic">
                   Hinweis: Schnelle Bearbeitung via E-Mail
                 </p>
-                <button className="w-full bg-brand-lime text-brand-navy py-4 rounded-xl font-bold shadow-lg" type="button">
+                <button className="w-full bg-brand-lime text-brand-navy py-4 rounded-xl font-bold shadow-lg" type="submit">
                   Schnellanfrage senden
                 </button>
+                </form>
               </div>
             </div>
           </div>
