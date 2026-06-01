@@ -72,11 +72,11 @@ export default function HomePage() {
               {[
                 {value: '60 Min.', label: 'typische Express-Reparatur'},
                 {value: '3 Mon.', label: 'Garantie auf viele Arbeiten'},
-                {value: '3 Städte', label: 'Rhede, Bocholt, Borken'},
+                {value: 'NRW', label: 'Service in der Umgebung'},
               ].map((item) => (
                 <div
                   key={item.value}
-                  className="bg-brand-grey/70 rounded-2xl p-4 border border-brand-grey"
+                  className="bg-brand-grey/70 rounded-2xl p-4 border border-brand-navy/10 shadow-sm"
                 >
                   <div className="text-2xl font-black text-brand-navy">
                     {item.value}
@@ -185,7 +185,7 @@ export default function HomePage() {
             ].map((feature, i) => (
               <div
                 key={i}
-                className="bg-white p-10 rounded-[40px] shadow-sm border border-brand-grey hover:border-blue-600 transition-all"
+                className="bg-white p-10 rounded-[40px] shadow-sm border border-brand-navy/10 hover:border-blue-600 hover:shadow-md transition-all"
               >
                 <div className="text-blue-600 mb-6">{feature.icon}</div>
                 <h3 className="text-xl font-bold mb-4">{feature.title}</h3>
@@ -460,7 +460,7 @@ export default function HomePage() {
                 {
                   icon: <Clock size={24} />,
                   title: 'Öffnungszeiten',
-                  text: 'Mo - Fr: 10:00 - 13:00 Uhr / 14:00 - 18:00 Uhr. Sa: 10:00 - 15:00 Uhr.',
+                  text: 'Mo - Fr:\n10:00 - 13:00 Uhr\n14:00 - 18:00 Uhr\nSa:\n10:00 - 15:00 Uhr',
                 },
                 {
                   icon: <Zap size={24} />,
@@ -481,7 +481,7 @@ export default function HomePage() {
                 <div key={item.title} className="bg-brand-grey rounded-[28px] p-7">
                   <div className="text-blue-600 mb-5">{item.icon}</div>
                   <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                  <p className="text-brand-navy/60 text-sm leading-relaxed">
+                  <p className="text-brand-navy/60 text-sm leading-relaxed whitespace-pre-line">
                     {item.text}
                   </p>
                 </div>
@@ -532,7 +532,7 @@ export default function HomePage() {
             ].map((repair) => (
               <article
                 key={repair.title}
-                className="bg-white border border-brand-grey rounded-[28px] p-7 hover:border-blue-600 transition-colors"
+                className="bg-white border border-brand-navy/10 rounded-[28px] p-7 shadow-sm hover:border-blue-600 hover:shadow-md transition-all"
               >
                 <div className="text-blue-600 mb-6">{repair.icon}</div>
                 <h3 className="text-xl font-bold mb-3">{repair.title}</h3>

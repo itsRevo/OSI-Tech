@@ -1,3 +1,5 @@
+ 'use client';
+
 import {
   CheckCircle2,
   Mail,
@@ -7,8 +9,15 @@ import {
   Zap,
 } from 'lucide-react';
 import Link from 'next/link';
+import {usePathname} from 'next/navigation';
 
 export default function Footer() {
+  const pathname = usePathname();
+  const cityMatch = pathname?.match(/^\/(rhede|bocholt|borken)(?:\/|$)/i);
+  const cityLabel = cityMatch
+    ? cityMatch[1].charAt(0).toUpperCase() + cityMatch[1].slice(1)
+    : null;
+
   return (
     <footer className="bg-brand-navy text-white py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -16,9 +25,11 @@ export default function Footer() {
           <div className="col-span-2">
             <h2 className="text-4xl font-bold italic mb-6">
               OsiTech{' '}
-              <span className="text-brand-lime not-italic text-sm ml-2 tracking-widest uppercase">
-                Rhede
-              </span>
+              {cityLabel ? (
+                <span className="text-brand-lime not-italic text-sm ml-2 tracking-widest uppercase">
+                  {cityLabel}
+                </span>
+              ) : null}
             </h2>
             <p className="text-white/40 max-w-sm text-sm leading-relaxed mb-8">
               Seit über 10 Jahren Ihr Partner für professionelle Smart Device

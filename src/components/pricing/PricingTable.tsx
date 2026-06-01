@@ -101,6 +101,40 @@ export default function PricingTable() {
     void loadPricing();
   }, []);
 
+  useEffect(() => {
+    if (loading) {
+      return;
+    }
+
+    if (catalog.length === 0) {
+      return;
+    }
+
+    if (selectedBrand && selectedModel && selectedService) {
+      return;
+    }
+
+    const preferredOrder: BrandKey[] = ['apple', 'samsung', 'other'];
+    const defaultBrand =
+      preferredOrder.find((key) =>
+        catalog.some((brand) => brand.key === key && brand.models.length > 0),
+      ) ??
+      catalog.find((brand) => brand.models.length > 0)?.key ??
+      null;
+
+    if (!defaultBrand) {
+      return;
+    }
+
+    const brandData = findBrand(catalog, defaultBrand);
+    const defaultModel = brandData?.models?.[0]?.model ?? null;
+    const defaultService = brandData?.models?.[0]?.services?.[0]?.id ?? null;
+
+    setSelectedBrand((prev) => prev ?? defaultBrand);
+    setSelectedModel((prev) => prev ?? defaultModel);
+    setSelectedService((prev) => prev ?? defaultService);
+  }, [catalog, loading, selectedBrand, selectedModel, selectedService]);
+
   const selectedBrandData = findBrand(catalog, selectedBrand);
   const modelOptions = selectedBrandData?.models ?? [];
 
@@ -261,7 +295,7 @@ export default function PricingTable() {
                   Folge der Reihenfolge: Marke → Modell → Service. Danach wird
                   der Preis angezeigt.
                 </p>
-                {selectedBrand ? null : (
+                {selectedBrand && selectedBrand !== 'other' ? null : (
                   <Link
                     href="/contact"
                     className="w-full bg-brand-lime text-brand-navy py-4 rounded-xl font-bold flex items-center justify-center hover:scale-[1.03] transition-transform"

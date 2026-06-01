@@ -14,6 +14,20 @@ const cityPages = {
     distance: 'direkt vor Ort',
     localText:
       'Für Kunden aus Rhede ist der Bring-In-Service besonders unkompliziert: Gerät vorbeibringen, Fehlerbild prüfen lassen und vor der Reparatur eine transparente Einschätzung erhalten.',
+    faqs: [
+      {
+        q: 'Wie schnell ist eine Handy Reparatur in Rhede möglich?',
+        a: 'Viele Display- und Akku-Reparaturen sind bei verfügbaren Teilen kurzfristig möglich. Für eine genaue Einschätzung reicht meist Modell + Schaden.',
+      },
+      {
+        q: 'Welche Geräte repariert ihr?',
+        a: 'Wir reparieren u.a. iPhone, Samsung, Google Pixel sowie viele Tablets und Laptops. Wenn du unsicher bist, frag kurz an.',
+      },
+      {
+        q: 'Bekomme ich vorab einen Preis?',
+        a: 'Ja. Vor Reparaturbeginn gibt es eine transparente Einschätzung. Richtwerte findest du außerdem auf der Preisseite.',
+      },
+    ],
   },
   bocholt: {
     city: 'Bocholt',
@@ -25,6 +39,20 @@ const cityPages = {
     distance: 'schnell aus Bocholt erreichbar',
     localText:
       'Viele Kunden aus Bocholt nutzen unseren Bring-In-Service, weil Diagnose, Preisabsprache und Reparatur in einem klaren Ablauf stattfinden. Auf Wunsch besprechen wir vorab per Telefon oder E-Mail, ob ein Ersatzteil verfügbar ist.',
+    faqs: [
+      {
+        q: 'Lohnt sich eine Handy Reparatur aus Bocholt?',
+        a: 'Ja – viele Kunden aus Bocholt kommen für Display-, Akku- und Ladebuchsen-Reparaturen zu uns nach Rhede, weil der Ablauf klar und planbar ist.',
+      },
+      {
+        q: 'Kann ich vorab klären, ob Teile verfügbar sind?',
+        a: 'Ja. Sende Modell + Problem, dann prüfen wir die Verfügbarkeit und nennen dir ein realistisches Zeitfenster.',
+      },
+      {
+        q: 'Kann ich auch ohne Termin vorbeikommen?',
+        a: 'Grundsätzlich ja. Für weniger Wartezeit ist eine kurze Termin-/Kontaktanfrage empfehlenswert.',
+      },
+    ],
   },
   borken: {
     city: 'Borken',
@@ -36,6 +64,20 @@ const cityPages = {
     distance: 'gut aus Borken erreichbar',
     localText:
       'Wenn Sie aus Borken kommen, können Sie vorab einen Termin anfragen und Ihr Gerät gezielt zur Prüfung abgeben. So lassen sich Wartezeit und Ersatzteilbedarf besser planen.',
+    faqs: [
+      {
+        q: 'Welche Reparaturen sind besonders häufig?',
+        a: 'Sehr häufig sind Displaytausch, Akkuwechsel, Ladebuchse/Charging-Probleme sowie Diagnose bei Wasser- oder Sturzschäden.',
+      },
+      {
+        q: 'Wie läuft die Reparatur ab?',
+        a: 'Du fragst kurz an oder bringst das Gerät vorbei. Wir prüfen den Schaden, sprechen den Preis ab und reparieren nach Freigabe.',
+      },
+      {
+        q: 'Gibt es Garantie auf die Reparatur?',
+        a: 'Auf viele Arbeiten gibt es Garantie – Details hängen von Gerät und Reparaturart ab. Frag gerne kurz nach.',
+      },
+    ],
   },
 } as const;
 
@@ -60,18 +102,53 @@ export async function generateMetadata({params}: PageProps): Promise<Metadata> {
     return {};
   }
 
+  const baseUrl = 'https://osi-tech.de';
+  const canonicalUrl = `${baseUrl}/${city}`;
+  const title = `${page.title} | OsiTech Smart Repair`;
+  const keywords = [
+    page.title,
+    `Smartphone Reparatur ${page.city}`,
+    `iPhone Reparatur ${page.city}`,
+    `Samsung Reparatur ${page.city}`,
+    `Display Reparatur ${page.city}`,
+    `Akku Wechsel ${page.city}`,
+  ];
+
   return {
-    title: page.title,
+    title: title,
     description: page.description,
+    keywords,
     alternates: {
-      canonical: `/${city}`,
+      canonical: canonicalUrl,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+      },
     },
     openGraph: {
-      title: `${page.title} | OsiTech Smart Repair`,
+      title: title,
       description: page.description,
-      url: `https://osi-tech.de/${city}`,
+      url: canonicalUrl,
       type: 'website',
       locale: 'de_DE',
+      images: [
+        {
+          url: `${baseUrl}/og-image.jpg`,
+          width: 1200,
+          height: 630,
+          alt: 'OsiTech Smart Repair',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: title,
+      description: page.description,
+      images: [`${baseUrl}/og-image.jpg`],
     },
   };
 }
@@ -102,12 +179,16 @@ export default async function CityPage({params}: PageProps) {
     },
   ];
 
-  const jsonLd = {
+  const baseUrl = 'https://osi-tech.de';
+  const pageUrl = `${baseUrl}/${slug}`;
+
+  const localBusinessJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
+    '@id': `${baseUrl}/#business`,
     name: 'OsiTech Smart Repair',
     image: 'https://osi-tech.de/og-image.jpg',
-    url: `https://osi-tech.de/${slug}`,
+    url: pageUrl,
     telephone: '+4915756441016',
     email: 'info@osi-tech.de',
     address: {
@@ -122,58 +203,131 @@ export default async function CityPage({params}: PageProps) {
     description: page.description,
   };
 
+  const webPageJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: page.title,
+    url: pageUrl,
+    description: page.description,
+    inLanguage: 'de-DE',
+    about: {
+      '@type': 'Service',
+      name: `Handy Reparatur ${page.city}`,
+      provider: {
+        '@id': `${baseUrl}/#business`,
+      },
+      areaServed: page.city,
+    },
+  };
+
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: page.faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a,
+      },
+    })),
+  };
+
   return (
-    <main className="pt-32 pb-24">
+    <main className="pt-32">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{__html: JSON.stringify(jsonLd)}}
+        dangerouslySetInnerHTML={{__html: JSON.stringify(localBusinessJsonLd)}}
       />
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{__html: JSON.stringify(webPageJsonLd)}}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{__html: JSON.stringify(faqJsonLd)}}
+      />
+      <section className="pb-24 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 grid lg:grid-cols-2 gap-16 items-center">
           <div>
-            <span className="text-blue-600 text-[10px] font-bold tracking-[0.2em] uppercase">
+            <span className="text-blue-600 font-bold tracking-[0.2em] text-[10px] uppercase block mb-4 italic">
               {page.distance}
             </span>
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-brand-navy leading-tight italic mt-4">
-              {page.title}
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-brand-navy leading-[0.9] italic mb-8">
+              Handy <span className="text-blue-600 not-italic">Reparatur</span>
+              <br />
+              {page.city}
             </h1>
-            <p className="text-brand-navy/60 text-lg leading-relaxed mt-8 max-w-xl">
+            <p className="text-brand-navy/60 text-lg max-w-md leading-relaxed mb-10">
               {page.intro}
             </p>
-            <div className="flex flex-wrap gap-4 mt-10">
+            <div className="mb-6 inline-flex items-center gap-3 rounded-2xl bg-blue-50 text-blue-700 px-5 py-3 font-bold text-sm border border-blue-100">
+              <MapPin size={18} />
+              Werkstatt in Rhede – Wibbeltstraße 35
+            </div>
+            <div className="flex flex-wrap gap-4">
               <Link
                 href="/termine"
-                className="bg-brand-navy text-white px-7 py-4 sm:px-8 rounded-2xl font-bold inline-flex items-center"
+                className="bg-brand-navy text-white px-7 py-4 sm:px-10 sm:py-5 rounded-2xl font-bold text-base sm:text-lg hover:shadow-2xl hover:scale-105 transition-all flex items-center"
               >
-                Termin anfragen <ArrowRight size={18} className="ml-3" />
+                Termin anfragen <ArrowRight size={20} className="ml-3" />
               </Link>
               <Link
                 href="/preise"
-                className="bg-brand-grey text-brand-navy px-7 py-4 sm:px-8 rounded-2xl font-bold"
+                className="bg-white border-2 border-brand-grey px-7 py-4 sm:px-10 sm:py-5 rounded-2xl font-bold text-base sm:text-lg text-brand-navy hover:bg-brand-grey transition-all"
               >
-                Preise ansehen
+                Preise prüfen
+              </Link>
+              <Link
+                href="/services"
+                className="bg-white border-2 border-brand-grey px-7 py-4 sm:px-10 sm:py-5 rounded-2xl font-bold text-base sm:text-lg text-brand-navy hover:bg-brand-grey transition-all"
+              >
+                Leistungen
               </Link>
             </div>
-          </div>
-          <div className="bg-brand-grey rounded-[36px] p-7 sm:p-8 md:p-12">
-            <MapPin className="text-blue-600 mb-8" size={36} />
-            <h2 className="text-3xl font-bold italic mb-6">
-              Reparatur-Service für {page.city}
-            </h2>
-            <p className="text-brand-navy/60 leading-relaxed">
-              {page.localText}
-            </p>
-            <div className="mt-8 space-y-4">
+
+            <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-xl">
               {[
-                'Klare Diagnose vor Reparaturbeginn',
-                'Display, Akku, Backglass und Software-Service',
-                'Service für iPhone, Samsung, Google Pixel, iPad und Laptop',
+                {value: '60 Min.', label: 'typische Express-Reparatur'},
+                {value: '3 Mon.', label: 'Garantie auf viele Arbeiten'},
+                {value: page.city, label: 'regionaler Service'},
               ].map((item) => (
-                <div key={item} className="flex items-center text-sm font-semibold">
-                  <CheckCircle2 className="text-blue-600 mr-3" size={18} />
-                  {item}
+                <div
+                  key={item.value}
+                  className="bg-brand-grey/70 rounded-2xl p-4 border border-brand-grey"
+                >
+                  <div className="text-2xl font-black text-brand-navy">
+                    {item.value}
+                  </div>
+                  <div className="text-[10px] uppercase tracking-wide text-brand-navy/40 font-bold mt-1 leading-tight">
+                    {item.label}
+                  </div>
                 </div>
               ))}
+            </div>
+          </div>
+
+          <div className="relative">
+            <div className="absolute inset-0 bg-blue-600 rounded-[60px] rotate-6 opacity-5 blur-3xl" />
+            <div className="relative bg-white rounded-[60px] p-3 sm:p-4 shadow-2xl">
+              <img
+                src="https://images.unsplash.com/photo-1597740985671-2a8a3b80502e?auto=format&fit=crop&q=80&w=1000"
+                className="rounded-[50px] w-full aspect-[4/5] object-cover"
+                alt="Repair Tech"
+                referrerPolicy="no-referrer"
+              />
+              <div className="hidden md:block absolute -bottom-10 -left-10 bg-brand-lime p-8 rounded-[40px] shadow-xl max-w-[260px]">
+                <h3 className="text-3xl font-black text-brand-navy leading-tight">
+                  Reparatur-Service für {page.city}
+                </h3>
+              </div>
+              <div className="hidden md:block absolute top-10 -right-10 bg-brand-navy text-white p-8 rounded-[40px] shadow-xl italic max-w-[300px]">
+                <CheckCircle2 size={40} className="text-brand-lime mb-2" />
+                <h4 className="font-bold text-sm">Transparente Diagnose</h4>
+                <p className="text-white/60 text-sm mt-2 leading-relaxed">
+                  {page.localText}
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -216,6 +370,37 @@ export default async function CityPage({params}: PageProps) {
           >
             Kontakt aufnehmen
           </Link>
+        </div>
+      </section>
+
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 mt-24">
+        <div className="grid lg:grid-cols-12 gap-10 items-start">
+          <div className="lg:col-span-5">
+            <span className="text-blue-600 text-[10px] font-bold tracking-[0.2em] uppercase">
+              Fragen & Antworten
+            </span>
+            <h2 className="text-3xl md:text-4xl font-black italic text-brand-navy mt-4">
+              Häufige Fragen zur Handy Reparatur in {page.city}
+            </h2>
+            <p className="text-brand-navy/60 mt-6 leading-relaxed">
+              Wenn du über Google auf diese Seite kommst: Hier findest du die
+              wichtigsten Infos zu Ablauf, typischen Reparaturen und dem
+              schnellsten Weg zur Anfrage.
+            </p>
+          </div>
+          <div className="lg:col-span-7 space-y-5">
+            {page.faqs.map((faq) => (
+              <article
+                key={faq.q}
+                className="bg-white border border-brand-grey rounded-[28px] p-7"
+              >
+                <h3 className="text-lg font-bold text-brand-navy">{faq.q}</h3>
+                <p className="text-brand-navy/60 text-sm leading-relaxed mt-3">
+                  {faq.a}
+                </p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
     </main>
