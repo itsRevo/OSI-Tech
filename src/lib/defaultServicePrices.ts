@@ -143,5 +143,3 @@ export function getDefaultServicePrices(): PriceRecordInput[] {
 
   return items;
 }
-
- 
