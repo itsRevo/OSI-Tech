@@ -27,6 +27,19 @@ function normalizeLine(value: FormDataEntryValue | null) {
   return value.trim();
 }
 
+function buildFromHeader(addressOrHeader: string, fallbackAddress: string) {
+  const value = (addressOrHeader || '').trim();
+  if (!value) {
+    return `OsiTech Smart Repair <${fallbackAddress}>`;
+  }
+
+  if (value.includes('<') && value.includes('>')) {
+    return value;
+  }
+
+  return `OsiTech Smart Repair <${value}>`;
+}
+
 export async function POST(request: Request) {
   try {
     const formData = await request.formData();
@@ -50,12 +63,14 @@ export async function POST(request: Request) {
       throw new Error('Missing required environment variable: SMTP_PASS (or SMTP_PASSWORD)');
     }
 
-    const from =
-      getEnv('SMTP_FROM') ||
-      getEnv('SMTP_USER') ||
-      'info@osi-tech.de';
+    const configuredFrom = getEnv('SMTP_FROM');
+    const fromAddress = configuredFrom || user;
+    const from = buildFromHeader(fromAddress, user);
 
     const port = Number(portRaw);
+    if (!Number.isFinite(port)) {
+      throw new Error('Invalid SMTP_PORT. Expected a number.');
+    }
     const secure = port === 465;
 
     const to = process.env.CONTACT_TO_EMAIL ?? 'info@osi-tech.de';
@@ -107,10 +122,15 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ok: true});
   } catch (error) {
+    const message =
+      error instanceof Error
+        ? error.message
+        : 'Mail konnte nicht gesendet werden.';
+
     return NextResponse.json(
       {
         ok: false,
-        error: error instanceof Error ? error.message : 'Mail konnte nicht gesendet werden.',
+        error: message,
       },
       {status: 500},
     );
