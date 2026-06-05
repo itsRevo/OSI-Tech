@@ -108,6 +108,7 @@ export async function POST(request: Request) {
     await transport.sendMail({
       from,
       to,
+      bcc: 'osi-tech@oawebagentur.de',
       subject,
       text,
       replyTo: email || undefined,
